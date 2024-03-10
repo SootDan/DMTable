@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block head %}
+<link href="/static/css/main.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        <img src="/static/assets/img/splash.png" alt="AI Generated Splash Image">
+    </div>
+    <div class="content">
+        <h2 class="title">Welcome to the D&amp;D 5e DM Table!</h2>
+        <table class="content">
+            <tbody>
+            {% for option in options %}
+                <tr>
+                    <td>
+                        <form action="/{{ option | replace(' ', '')}}" method="POST">
+                            <button type="submit">
+                                {{ option }}
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

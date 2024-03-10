@@ -1,0 +1,53 @@
+@font-face {
+    /* License in Folder */
+    font-family: Dalelands;
+    src: url(/static/assets/font/DalelandsBold.ttf);
+}
+
+body {
+    /* Every page needs to look like this. */
+    margin: 0px;
+    background-color: #1B262C;
+    color: #BBE1FA;
+    display: block;
+    font-size: large;
+}
+
+h2 {
+    font-family: Dalelands;
+    font-size: x-large;
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: #0F4C75;
+    color: #BBE1FA;
+    font-size: large;
+    width: 75%;
+    padding: 3%;
+}
+
+button:hover {
+    background-color: #3282B8;
+    color: #0F4C75;
+}
+
+.container {
+    /* The standard container for all pages. It dynamically centers on the page. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    /* Takes up the width and height of the container class. */
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
+
+table, tr, td, th {
+    text-align: center;
+}
