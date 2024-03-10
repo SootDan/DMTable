@@ -1,3 +1,10 @@
-chromium/chromium.AppImage
-git.txt
+chromium/
+.git/
+.vscode/
+.venv/
+__pycache__/
+scripts/__pycache__
+.vscode/
+notes.txt
+*.pyc
 5e \DM \Table.code-workspace

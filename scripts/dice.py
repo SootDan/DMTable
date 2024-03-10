@@ -2,9 +2,8 @@ from random import randint, seed
 
 
 def roll_dice(dice_eyes=20, dice_type="standard", dice_rolls=1, modifier=0):
-    """
-    Dice roll. Takes into account eyes, type, rolls, and modifier.
-    """
+    """Dice roll. Takes into account eyes, type, rolls, and modifier."""
+
     seed()
     output = []
     if dice_type == "advantage" or dice_type == "disadvantage":
@@ -22,9 +21,8 @@ def roll_dice(dice_eyes=20, dice_type="standard", dice_rolls=1, modifier=0):
 
 
 def hit_chance(armor_class=10, dice_eyes=20, dice_type="standard", dice_rolls=1, modifier=0):
-    """
-    Calculates hit chance in percent. Check source for formula in README.
-    """
+    """Calculates hit chance in percent. Check source for formula in README."""
+
     if dice_type == "advantage" or dice_type == "disadvantage":
         dice_rolls = 2
     if dice_type == "disadvantage":
@@ -39,7 +37,8 @@ def hit_chance(armor_class=10, dice_eyes=20, dice_type="standard", dice_rolls=1,
     return int(chance * 100)
 
 
-def hp_calc(level=1, char_class="barbarian", con_modifier=1, 
+def hp_calc(level=1, char_class="barbarian", con_modifier=1,
             is_hill_dwarf=False, is_tough=False, is_draconic=False):
-    # Only calculates average HP, no rolls.
+    """Only calculates average HP, no rolls."""
+
     ...

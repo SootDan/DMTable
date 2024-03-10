@@ -1,8 +1,4 @@
 {% extends "layout.html" %}
-{% block head %}
-<link href="/static/css/main.css" rel="stylesheet">
-{% endblock %}
-
 {% block body %}
 <div class="container">
     <div>
@@ -13,15 +9,11 @@
         <table class="content">
             <tbody>
             {% for option in options %}
-                <tr>
-                    <td>
-                        <form action="/{{ option | replace(' ', '')}}" method="POST">
-                            <button type="submit">
-                                {{ option }}
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+            <tr><td>
+                <form action="/{{ option | replace(' ', '') | lower() }}" method="POST">
+                    <button type="submit">{{ option }}</button>
+                </form>
+            </td></tr>
             {% endfor %}
             </tbody>
         </table>

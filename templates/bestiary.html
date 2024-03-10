@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<table>
+    {% for mob in mobs %}
+    <tr>
+        <td>
+            {{ mob }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
