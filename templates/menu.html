@@ -6,17 +6,15 @@
     </div>
     <div class="content">
         <h2 class="title">Welcome to the D&amp;D 5e DM Table!</h2>
-        <table class="content">
-            <tbody>
+        <ul="content">
             {% for option in options %}
-            <tr><td>
+            <li>
                 <form action="/{{ option | replace(' ', '') | lower() }}" method="POST">
                     <button type="submit">{{ option }}</button>
                 </form>
-            </td></tr>
+            </li>
             {% endfor %}
-            </tbody>
-        </table>
+        </ul>
     </div>
 </div>
 {% endblock %}

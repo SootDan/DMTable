@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from flaskwebgui import FlaskUI
 from scripts.dice import roll_dice, hit_chance
-from scripts.dnd_api import api_index, bestiary
+from scripts.dnd_api import monsters, fetch_beast
+from scripts.db import update_bestiary
 
 app = Flask(__name__, static_url_path="/static")
 app.config.from_object(__name__)
@@ -25,13 +26,15 @@ def load_game():
 
 @app.route("/bestiary", methods=["POST", "GET"])
 def bestiary():
-    mobs = api_index("monsters")
+    mobs = monsters()
+    mob_data = [fetch_beast(i) for i in mobs]
     return render_template("bestiary.html", mobs=mobs)
 
 
 @app.route("/settings", methods=["POST"])
 def settings():
-    return render_template("error.html")
+    update = update_bestiary
+    return render_template("settings.html", u_bestiary=update)
 
 
 @app.route("/exitgame", methods=["POST"])

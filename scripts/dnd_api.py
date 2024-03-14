@@ -1,20 +1,19 @@
 import requests
 
+url = "https://www.dnd5eapi.co/api/"
+headers = {"Accept": "application/json"}
+is_online = requests.get(url, headers=headers).status_code == 200
 
 def api_index(type: str, name: str=None, index: str=None):
     """Function through which all API requests go."""
 
     # Checks if API is online first.
-    url = "https://www.dnd5eapi.co/api/"
-    headers = {"Accept": "application/json"}
-    response = requests.get(url + type, headers=headers)
-
-    if response.status_code != 200:
-        return "API offline. Check internet connection."
+    if not is_online:
+        return False
+    response = requests.get(url + type, headers=headers).json()
 
     # Now sends requests and gives output
-    response_data = response.json()
-    response_dict = response_data["results"]
+    response_dict = response["results"]
 
     if name:
         # Gets index for name.
@@ -27,6 +26,21 @@ def api_index(type: str, name: str=None, index: str=None):
         ...
 
 
-def bestiary(name: str=None, index: str=None):
+def monsters(name: str=None, index: str=None):
     """Creates the bestiary."""
-    return api_index(type="monsters", name=name)
+    index = api_index(type="monsters", name=name)
+    return index
+
+
+def fetch_beast(index: str):
+    """Fetches monster data."""
+
+    if not is_online:
+        return False
+    response = requests.get(url + "monsters/" + index, headers=headers).json()
+    stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"]
+    stats_list = []
+    for key in stats:
+        stats_list.append(response[key])
+
+    return stats_list

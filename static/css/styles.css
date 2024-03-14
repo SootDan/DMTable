@@ -33,10 +33,18 @@ button:hover {
     color: #0F4C75;
 }
 
+.bottom {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+}
+
 .container {
     /* The standard container for all pages. It dynamically centers on the page. */
     position: absolute;
-    top: 50%;
+    top: 33%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -49,5 +57,10 @@ button:hover {
 }
 
 table, tr, td, th {
+    text-align: center;
+}
+
+ul, li {
+    list-style-type: none;
     text-align: center;
 }

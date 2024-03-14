@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <div>
+        <img src="/static/assets/img/splash.png" alt="AI Generated Splash Image">
+    </div>
+    <div class="content">
+        <h2 class="title">Settings Menu</h2>
+        <ul>
+            <li>
+                <form action="{{ u_bestiary }}">
+                    <button type="menu">Update Bestiary</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,10 +1,15 @@
+# Directories
 chromium/
 .git/
 .vscode/
 .venv/
 __pycache__/
-scripts/__pycache__
+scripts/__pycache__/
 .vscode/
+
+# My notes
 notes.txt
+
+# .pyc files and workspace
 *.pyc
 5e \DM \Table.code-workspace
