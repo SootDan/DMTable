@@ -1,12 +1,29 @@
 {% extends "layout.html" %}
 {% block body %}
-<table>
-    {% for mob in mobs %}
-    <tr>
-        <td>
-            {{ mob }}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+<div>
+    <div>
+        {% for mob in mobs %}
+        <table class="content">
+            <tr>
+                <td colspan="7"><h2>{{ mob["name"] }}</h2></td>
+            <tr>
+                <td rowspan="3"><img src="{{ mob['image'] }}" class="monster_img"></td>
+                <td>STR: {{ mob["strength"] }}</td>
+                <td>DEX: {{ mob["dexterity"] }}</td>
+                <td>CON: {{ mob["constitution"] }}</td>
+                <td>INT: {{ mob["intelligence"] }}</td>
+                <td>WIS: {{ mob["wisdom"] }}</td>
+                <td>CHA: {{ mob["charisma"] }}</td>
+            </tr>
+            <tr>
+                <td>AC: {{ mob["armor_class"] }}</td>
+                <td>HP: {{ mob["hit_points"] }}</td>
+                <td>SIZE: {{ mob["size"] }}</td>
+                <td>SPD: {{ mob["speed"] }}</td>
+                <td colspan="2">XP: {{ mob["xp"] }}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

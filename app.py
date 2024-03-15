@@ -1,10 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flaskwebgui import FlaskUI
 from scripts.dice import roll_dice, hit_chance
-from scripts.dnd_api import monsters, fetch_beast
-from scripts.db import update_bestiary
+from scripts.db import db_bestiary
 
-app = Flask(__name__, static_url_path="/static")
+app = Flask(__name__)
 app.config.from_object(__name__)
 
 
@@ -14,27 +13,30 @@ def menu():
     return render_template("menu.html", options=options)
 
 
-@app.route("/newgame", methods=["POST"])
+@app.route("/newgame", methods=["GET", "POST"])
 def new_game():
     return render_template("error.html")
 
 
-@app.route("/loadgame", methods=["POST"])
+@app.route("/loadgame", methods=["GET", "POST"])
 def load_game():
     return render_template("error.html")
 
 
-@app.route("/bestiary", methods=["POST", "GET"])
+@app.route("/bestiary", methods=["GET", "POST"])
 def bestiary():
-    mobs = monsters()
-    mob_data = [fetch_beast(i) for i in mobs]
+    mobs = db_bestiary()
     return render_template("bestiary.html", mobs=mobs)
 
 
-@app.route("/settings", methods=["POST"])
+@app.route("/settings", methods=["GET", "POST"])
 def settings():
-    update = update_bestiary
-    return render_template("settings.html", u_bestiary=update)
+    if request.method == "POST":
+        # User changes a setting.
+        update = db_bestiary(update=True)
+        return render_template("settings.html", u_bestiary=update)
+
+    return render_template("settings.html")
 
 
 @app.route("/exitgame", methods=["POST"])
@@ -44,7 +46,7 @@ def exit():
 
 if __name__ == "__main__":
     # Browser mode for debugging
-    app.run(debug=True, port=50000)
+    app.run(debug=True, port=5000)
 
     # Application using Chromium
     """FlaskUI(app=app, 

@@ -9,7 +9,7 @@
         <ul="content">
             {% for option in options %}
             <li>
-                <form action="/{{ option | replace(' ', '') | lower() }}" method="POST">
+                <form action="/{{ option | replace(' ', '') | lower() }}" method="GET">
                     <button type="submit">{{ option }}</button>
                 </form>
             </li>

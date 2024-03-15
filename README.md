@@ -6,30 +6,30 @@ TBD
 ### Description
 There are a lot of Dungeons & Dragons programs out there but a lot of them work on outdated knowledge as well as being full of ads or require a monthly subscription. So I made my own.  
 The program features customizable dice rolls with unique character sheets. Users may save or load their own files.  
-Each character sheet has the character's name, their pronouns, and stats. Dice roll modifiers are automatically applied on each roll.  
+Each character sheet has the necessary info. Dice roll modifiers are automatically applied on each roll.  
 One can also create a campaign sheet detailing everything the party has encountered so far.  
 Users may use the bestiary or spellbook to quickly look up anything that they need. 
 The program abides by the [Wizards of the Coast's Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy).
 
 ### Current Features
 > Dice Rolls  
-> Imports DND API
+> Imports DND API  
+> Bestiary
 
 ### To Be Implemented
-> HTML/CSS Web Interface  
 > Optional Campaign Sheets  
 > Optional Character Sheets  
 > Combat Functionality  
-> Bestiary  
 
 ### Current Issues
-Bestiary loads very slowly. This is due to the API throttling my requests. Will build an SQL database to save all requests to.  
-Bottom navbar doesn't work.  
-Settings don't work. SQL needs to be implemented.
+Bestiary works, but looks awful and there is no search function yet.  
+Settings don't work.  
+New Game / Load Game doesn't do anything.
 
 ### Work Documentation
 I made a HTML/CSS layout first. My first page was the menu for testing out different types of designs.  
-I chose Flask because its documentation is great. I researched the DND API which supports every encounter you can find in a standard DND campaign. This allowed me to quickly create the bestiary as well as the spellbook which will allow me to create the character sheet.
+I chose Flask. I researched the DND API which supports every encounter you can find in a standard (none-homebrew) DND campaign. This allowed me to quickly create the bestiary as well as the spellbook which will allow me to create the character sheet.  
+I made an SQL database to save all my API requests to; this was mainly because the API only slowly processes my requests and does not create any unnecessary strain on their end. One may choose to manually update the bestiary in the Settings.
 
 ### Creator
 This project is created and maintained solely by me.

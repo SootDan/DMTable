@@ -1,39 +1,14 @@
+/* Font section */
 @font-face {
     /* License in Folder */
     font-family: Dalelands;
     src: url(/static/assets/font/DalelandsBold.ttf);
 }
 
-body {
-    /* Every page needs to look like this. */
-    margin: 0px;
-    background-color: #1B262C;
-    color: #BBE1FA;
-    display: block;
-    font-size: large;
-}
 
-h2 {
-    font-family: Dalelands;
-    font-size: x-large;
-    text-align: center;
-}
-
-button {
-    border: none;
-    background-color: #0F4C75;
-    color: #BBE1FA;
-    font-size: large;
-    width: 75%;
-    padding: 3%;
-}
-
-button:hover {
-    background-color: #3282B8;
-    color: #0F4C75;
-}
-
+/* Div section */
 .bottom {
+    background-color: #0F4C75;
     position: fixed;
     left: 0px;
     bottom: 0px;
@@ -56,8 +31,58 @@ button:hover {
     align-content: center;
 }
 
+.monster_img {
+    float: left;
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 150px;
+    min-width: 150px;
+}
+
+
+/* Tag section */
+a:link, a:visited {
+    color:#3282B8;
+}
+
+a:link:hover {
+    color:#1B262C;
+}
+
+body {
+    /* Every page needs to look like this. */
+    margin: 0px;
+    background-color: #1B262C;
+    color: #BBE1FA;
+    display: block;
+    font-size: large;
+}
+
+button {
+    border: none;
+    background-color: #0F4C75;
+    color: #BBE1FA;
+    font-size: large;
+    width: 75%;
+    padding: 3%;
+}
+
+button:hover {
+    background-color: #3282B8;
+    color: #0F4C75;
+}
+
+h2 {
+    font-family: Dalelands;
+    font-size: x-large;
+    text-align: center;
+}
+
 table, tr, td, th {
     text-align: center;
+    border: 1px solid #3282B8;
+    border-collapse: collapse;
+    width: auto;
 }
 
 ul, li {
